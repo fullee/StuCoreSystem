@@ -11,7 +11,7 @@
 	5 统计各分数段人数	 6 删除记录
 
 	重选角色 <back>	 帮助<help>	 退出 <exit>
-Welcome,TeA! [05:28:22]#:
+	Welcome,TeA! [05:28:22]#:
 ======================================================
 
   数据表在（StuCoreSystem /  IndexCode_Java_Project /  MySQL_tables /）目录当中，运行前需要导入。
