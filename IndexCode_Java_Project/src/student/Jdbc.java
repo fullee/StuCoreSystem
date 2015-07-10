@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Jdbc {
-//
+
 	//testMain
 //	public static void main(String [] args){
 //		subMethod(0, 9, 9);
@@ -210,9 +210,7 @@ public class Jdbc {
 		return M;
 	}
 	public static void subMethod(int min,int max,int input){
-//		min = 3;
-//		max = 100;
-//		input = 10;
+
 		for(int i = 0; i < max; i+=input){
 			conn = connect();
 			try{

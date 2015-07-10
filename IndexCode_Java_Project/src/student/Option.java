@@ -1,96 +1,7 @@
 package student;
 
-import student.Jdbc;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Scanner;
-
-public class Index {
-
-	public static void main(String[] args) {
-		
-		while(true){
-			Scanner in = new Scanner(System.in);
-			Front front = new Front();
-			
-			String role = in.next();
-			while(true){
-				
-				if(role.equals("1")){
-
-					front.subFront();
-
-					System.out.print("Welcome,TeA! "+Front.time());
-					String option = in.next();
-					//重选角色
-					if(option.equals("back")) break;
-					
-					//功能
-					Option item = new Option();
-					switch(option){
-					case "exit":Option.exit();break;
-					
-					case "help":Option.help();break;
-					
-					case "1":item.insertOption();break;
-					
-					case "2":item.getAll();break;
-					
-					case "3":item.getAAO();break;
-					
-					case "4":item.findStu();break;
-					
-					case "5":item.subQuery();break;
-					
-					case "6":item.deleteId();break;
-					
-					default:System.out.println("!警告\t你的想法非常好，开发者正在玩命开发中，试试其他功能吧！");
-					try{
-						Thread.sleep(2000);
-					}catch(Exception e){
-						e.printStackTrace();
-					}
-					}
-				}
-				if(role.equals("2")){
-					Front.stuFront();
-					System.out.print("Welcome,Stu! "+Front.time());
-					String option = in.next();
-					//重选角色
-					if(option.equals("back")) break;
-					
-					//功能
-					Option item = new Option();
-					switch(option){
-					case "exit":Option.exit();break;
-					
-					case "help":Option.help();break;
-					
-					case "1":item.findStu();break;
-					
-					case "2":item.getAAO();break;
-				
-					default:System.out.println("!警告\t你的想法非常好，开发者正在玩命开发中，试试其他功能吧！");
-					try{
-						Thread.sleep(2000);
-					}catch(Exception e){
-						e.printStackTrace();
-					}
-					}
-				}
-				
-				if(!role.equals("1") && !role.equals("2")){
-					System.out.println("!警告\t请确定身份后再次输入");
-					System.out.print(Front.role());
-					role = in.next();
-				}				
-			}
-		}
-	}
-}
-
-											//功能选项类
-
+//功能选项类
 class Option{
 	static Scanner inO = new Scanner(System.in);
 	
@@ -109,7 +20,7 @@ class Option{
 		System.out.println("3.教师端可以执行本系统的全功能，教师身份权限较大，请谨慎操作！");
 		System.out.println("4.学生端只能执行本系统的部分功能");
 		System.out.println("\n[设计小组]");
-		System.out.println("姓名：\t周栋，李文良，夏超亭");
+		System.out.println("姓名：\t周栋 李文良 夏超亭");
 		System.out.println("分工：\t后期处理，编码，帮助文档，程序测试，数据表录入，命令界面设计");
 		System.out.println("\n[开源协议]\tMIT");
 		System.out.println("\n[设计思路]\t仿Linux终端界面");
@@ -217,7 +128,6 @@ class Option{
 		}
 		return 0;
 	}
-	//统计各分数段人数
 
 	//delete
 	public int deleteId(){
@@ -276,7 +186,6 @@ class Option{
 		return 0;
 	}
 
-
 	//分段查询
 	public void subQuery(){
 		int max = 0;
@@ -296,42 +205,3 @@ class Option{
 		
 	}
 }
-
-										//显示界面类
-
-class Front{
-	public Front(){
-		System.out.print("<1老师><2学生>\t请选择用户角色>>>");
-	}
-	public static String role(){
-		String role = "<1 老师><2 学生>  请选择用户角色>>>";
-		return role;
-	}
-	//提示符格式时间
-	public static String time(){
-		SimpleDateFormat time = new SimpleDateFormat("hh:mm:ss");
-		String tips = "["+time.format(new Date())+"]#:";
-		return tips;
-	}
-	//教师系统界面
-	public static void subFront(){
-		System.out.println("======================================================");
-		System.out.println("\t\t欢迎使用学生成绩管理系统");
-		System.out.println("\t1 输入学生信息\t 2 输出所有记录");
-		System.out.println("\t3 按平均成绩排序并输出\t 4 查找记录");
-		System.out.println("\t5 统计各分数段人数\t 6 删除记录");
-		System.out.println("\n\t重选角色 <back>\t 帮助<help>\t 退出 <exit>");
-		System.out.println("======================================================");
-	}
-	//学生客户端查询界面
-	public static void stuFront(){
-		System.out.println("======================================================");
-		System.out.println("\t\t成绩管理系统学生端");
-		System.out.println("\t\t  1 查寻成绩");
-		System.out.println("\t\t  2按名次输出");
-		System.out.println("\t[back][exit][help][1|2]");
-		System.out.println("======================================================");
-		
-	}
-}
-
